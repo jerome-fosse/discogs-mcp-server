@@ -2,13 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working rules
+
+- Always verify the actual filesystem state (Glob/Read) before making any claim about the existence, name, or content of a file. Memory and conversation context may be outdated.
+
 ## Project Overview
 
 A Spring Boot MCP (Model Context Protocol) server that enables AI agents to interact with the Discogs music database. Built with Spring AI's MCP server framework over WebFlux (reactive).
 
-- **Group/Artifact:** `com.jf.ai` / `discogs-mcp-server`
+- **Group/Artifact:** `com.jf.mcp` / `discogs-mcp-server`
+- **Root package:** `com.jf.mcp.discogs`
 - **Java version:** 25
-- **Spring Boot:** 4.0.3
+- **Spring Boot:** 4.0.4
 - **Spring AI MCP:** 2.0.0-M3 (`spring-ai-starter-mcp-server-webflux`)
 
 ## Build & Run Commands
@@ -31,8 +36,9 @@ No test or lint plugins are configured yet.
 
 ## Architecture
 
-The project is in early scaffolding stage. The only source file is:
+### Packages
 
-- `src/main/java/com/jf/ai/discogs/DiscogsMcpServer.java` — standard `@SpringBootApplication` entry point
-
-New MCP tools should be added as `@Bean`-annotated methods returning Spring AI `McpServerTool` (or equivalent) components within the `com.jf.ai.discogs` package. The WebFlux transport means handlers should be non-blocking/reactive where possible.
+- `com.jf.mcp.discogs` — entry point (`DiscogsMcpServer.java`, `@SpringBootApplication`)
+- `com.jf.mcp.discogs.api` — Discogs API client (`DiscogsApi.java`, WebClient-based, reactive)
+- `com.jf.mcp.discogs.config` — configuration (`DiscogsApiConfig`, `WebClientConfig`, `ServerConfig`)
+- `com.jf.mcp.discogs.model` — Java records mapping Discogs API JSON responses

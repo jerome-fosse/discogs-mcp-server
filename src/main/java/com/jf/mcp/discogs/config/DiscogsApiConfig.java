@@ -1,11 +1,15 @@
 package com.jf.mcp.discogs.config;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.annotation.Validated;
 
 @Configuration
 @ConfigurationProperties(prefix = "discogs.api")
+@Validated
 public class DiscogsApiConfig {
+    @NotBlank
     private String token;
     private String baseUrl;
     private Integer timeout;
@@ -51,6 +55,6 @@ public class DiscogsApiConfig {
                    timeout: %s
                    pageSize: %s
                 """
-                .formatted("**********", baseUrl, timeout, pageSize);
+                .formatted("***************", baseUrl, timeout, pageSize);
     }
 }

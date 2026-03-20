@@ -5,7 +5,7 @@ spring:
 
 discogs:
   api:
-    token: ${DISCOGS_TOKEN}
+    token: ${DISCOGS_TOKEN:}
     baseurl: ${DISCOGS_BASEURL:https://api.discogs.com}
     timeout: ${DISCOGS_TIMEOUT:3000}
     pagesize: ${DISCOGS_PAGESIZE:30}

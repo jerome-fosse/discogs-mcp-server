@@ -2,10 +2,17 @@ spring:
   application:
     name: discogs-mcp-server
     version: 0.0.1-SNAPSHOT
+  ai:
+    mcp:
+      server:
+        name: discogs-mcp-server
+        version: 0.0.1
+        protocol: STREAMABLE
+        type: ASYNC
 
 discogs:
   api:
     token: ${DISCOGS_TOKEN:}
     baseurl: ${DISCOGS_BASEURL:https://api.discogs.com}
-    timeout: ${DISCOGS_TIMEOUT:3000}
+    timeout: ${DISCOGS_TIMEOUT:5000}
     pagesize: ${DISCOGS_PAGESIZE:30}

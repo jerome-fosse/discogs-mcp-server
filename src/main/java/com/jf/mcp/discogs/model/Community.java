@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public record Community(
-    int have,
-    int want,
+    Integer have,
+    Integer want,
     String status,
     Rating rating,
     Contributor submitter,

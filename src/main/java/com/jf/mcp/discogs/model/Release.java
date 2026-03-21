@@ -5,7 +5,7 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 public record Release(
-    int id,
+    Integer id,
     String title,
     String thumb,
     String country,
@@ -13,7 +13,7 @@ public record Release(
     String notes,
     String status,
     String uri,
-    int year,
+    Integer year,
     List<String> genres,
     List<String> styles,
     List<ArtistCredit> artists,
@@ -29,12 +29,12 @@ public record Release(
     @JsonProperty("data_quality") String dataQuality,
     @JsonProperty("date_added") OffsetDateTime dateAdded,
     @JsonProperty("date_changed") OffsetDateTime dateChanged,
-    @JsonProperty("estimated_weight") int estimatedWeight,
-    @JsonProperty("format_quantity") int formatQuantity,
-    @JsonProperty("lowest_price") double lowestPrice,
-    @JsonProperty("master_id") int masterId,
+    @JsonProperty("estimated_weight") Integer estimatedWeight,
+    @JsonProperty("format_quantity") Integer formatQuantity,
+    @JsonProperty("lowest_price") Double lowestPrice,
+    @JsonProperty("master_id") Integer masterId,
     @JsonProperty("master_url") String masterUrl,
-    @JsonProperty("num_for_sale") int numForSale,
+    @JsonProperty("num_for_sale") Integer numForSale,
     @JsonProperty("released_formatted") String releasedFormatted,
     @JsonProperty("resource_url") String resourceUrl
 ) {}

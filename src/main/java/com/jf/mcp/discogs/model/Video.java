@@ -4,6 +4,6 @@ public record Video(
     String title,
     String description,
     String uri,
-    int duration,
-    boolean embed
+    Integer duration,
+    Boolean embed
 ) {}

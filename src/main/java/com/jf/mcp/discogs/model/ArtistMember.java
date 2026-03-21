@@ -3,8 +3,8 @@ package com.jf.mcp.discogs.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record ArtistMember(
-    int id,
+    Integer id,
     String name,
-    boolean active,
+    Boolean active,
     @JsonProperty("resource_url") String resourceUrl
 ) {}

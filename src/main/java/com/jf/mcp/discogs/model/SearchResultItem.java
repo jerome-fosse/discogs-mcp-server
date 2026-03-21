@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public record SearchResultItem(
-    int id,
+    Integer id,
     String title,
     String thumb,
     String uri,

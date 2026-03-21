@@ -1,26 +1,22 @@
 package com.jf.mcp.discogs.config;
 
-import io.netty.channel.ChannelOption;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.DefaultUriBuilderFactory;
-import org.springframework.web.util.UriBuilder;
-import reactor.netty.http.client.HttpClient;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.web.client.RestClient;
 
 @Configuration
 public class WebClientConfig {
 
     @Bean
-    public WebClient DiscogsWebClient(DiscogsApiConfig config) {
-        HttpClient httpClient = HttpClient.create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, config.getTimeout())
-                ;
+    public RestClient DiscogsRestClient(DiscogsApiConfig config) {
+        var factory = new SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(config.getTimeout());
+        factory.setReadTimeout(config.getTimeout());
 
-        return WebClient.builder()
+        return RestClient.builder()
                 .baseUrl(config.getBaseUrl())
-                .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .requestFactory(factory)
                 .defaultHeader("Content-Type", "application/json")
                 .defaultHeader("Accept", "application/json")
                 .defaultHeader("User-Agent", "DiscogsMcpServer")

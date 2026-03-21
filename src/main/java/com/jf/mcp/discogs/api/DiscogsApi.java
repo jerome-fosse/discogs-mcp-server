@@ -10,39 +10,38 @@ import com.jf.mcp.discogs.tools.PaginationCriteria;
 import com.jf.mcp.discogs.tools.SearchCriteria;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import org.springframework.web.client.RestClient;
 
 @Component
 public class DiscogsApi {
     private final DiscogsApiConfig config;
-    private final WebClient client;
+    private final RestClient client;
 
     private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(DiscogsApi.class);
 
-    public DiscogsApi(DiscogsApiConfig config, WebClient client) {
+    public DiscogsApi(DiscogsApiConfig config, RestClient client) {
         this.config = config;
         this.client = client;
     }
 
-    public Mono<MasterRelease> getMasterReleaseById(String id) {
+    public MasterRelease getMasterReleaseById(String id) {
         LOGGER.info("Getting master release by id: {}", id);
 
         return client.get()
                 .uri("/masters/{id}", id)
                 .retrieve()
-                .bodyToMono(MasterRelease.class);
+                .body(MasterRelease.class);
     }
 
-    public Mono<Release> getReleaseById(String id) {
+    public Release getReleaseById(String id) {
         LOGGER.info("Getting release by id: {}", id);
         return client.get()
                 .uri("/releases/{id}", id)
                 .retrieve()
-                .bodyToMono(Release.class);
+                .body(Release.class);
     }
 
-    public Mono<MasterReleaseVersions> getMasterReleaseVersions(String masterId, MasterReleaseVersionsCriteria criteria, PaginationCriteria pagination) {
+    public MasterReleaseVersions getMasterReleaseVersions(String masterId, MasterReleaseVersionsCriteria criteria, PaginationCriteria pagination) {
         LOGGER.info("Getting master release versions for master id: {}, criteria: {}, pagination: {}", masterId, criteria, pagination);
 
         return client.get()
@@ -57,10 +56,10 @@ public class DiscogsApi {
                         .queryParamIfPresent("sort_order", criteria.getOrder())
                         .build(masterId))
                 .retrieve()
-                .bodyToMono(MasterReleaseVersions.class);
+                .body(MasterReleaseVersions.class);
     }
 
-    public Mono<SearchResults> search(SearchCriteria criteria, PaginationCriteria pagination) {
+    public SearchResults search(SearchCriteria criteria, PaginationCriteria pagination) {
         LOGGER.info("Searching with criteria: {}, pagination: {}", criteria, pagination);
 
         return client.get()
@@ -87,6 +86,6 @@ public class DiscogsApi {
                         .queryParam("per_page", pagination.getPageSize().orElse(config.getPageSize()))
                         .build())
                 .retrieve()
-                .bodyToMono(SearchResults.class);
+                .body(SearchResults.class);
     }
 }

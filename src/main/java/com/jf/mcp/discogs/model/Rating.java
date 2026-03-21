@@ -1,6 +1,6 @@
 package com.jf.mcp.discogs.model;
 
 public record Rating(
-    double average,
-    int count
+    Double average,
+    Integer count
 ) {}

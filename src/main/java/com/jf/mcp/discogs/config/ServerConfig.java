@@ -1,9 +1,5 @@
 package com.jf.mcp.discogs.config;
 
-import com.jf.mcp.discogs.tools.DiscogsDatabaseService;
-import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.ai.tool.method.MethodToolCallbackProvider;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -13,13 +9,6 @@ public class ServerConfig {
     public ServerConfig(DiscogsApiConfig config) {
         this.config = config;
         System.out.println(this);
-    }
-
-    @Bean
-    public ToolCallbackProvider discogsDatabaseTools(DiscogsDatabaseService discogsDatabaseService) {
-        return  MethodToolCallbackProvider.builder()
-                .toolObjects(discogsDatabaseService)
-                .build();
     }
 
     public String toString() {

@@ -8,7 +8,6 @@ spring:
         name: discogs-mcp-server
         version: 0.0.1
         protocol: STREAMABLE
-        type: ASYNC
 
 discogs:
   api:

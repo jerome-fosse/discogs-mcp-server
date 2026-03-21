@@ -1,14 +1,12 @@
 package com.jf.mcp.discogs.tools;
 
 import com.jf.mcp.discogs.api.DiscogsApi;
-import com.jf.mcp.discogs.api.MasterReleaseVersionsParams;
-import com.jf.mcp.discogs.api.SortingField;
-import com.jf.mcp.discogs.api.SortingOrder;
 import com.jf.mcp.discogs.model.MasterRelease;
 import com.jf.mcp.discogs.model.MasterReleaseVersions;
 import com.jf.mcp.discogs.model.Release;
-import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
+import com.jf.mcp.discogs.model.SearchResults;
+import org.springframework.ai.mcp.annotation.McpTool;
+import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,31 +18,30 @@ public class DiscogsDatabaseService {
         this.api = api;
     }
 
-    @Tool(name = "database_master_release", description = "Get a master release by its id")
-    public MasterRelease getMasterReleaseById(@ToolParam(description = "The id of the master release") String id) {
+    @McpTool(name = "discogs_database_master_release", description = "Get a master release by its id. A Master represents a set of similar Releases. Masters (also known as “master releases”) have a “main release” which is often the chronologically earliest.")
+    public MasterRelease getMasterReleaseById(@McpToolParam(description = "The id of the master release") String id) {
         return api.getMasterReleaseById(id).block();
     }
 
-    @Tool(name = "database_release", description = "Get a release by its id")
-    public Release getReleaseById(@ToolParam(description = "The id of the release") String id) {
+    @McpTool(name = "discogs_database_release", description = "Get a release by its id. A Release represents a particular physical or digital object released by one or more Artists")
+    public Release getReleaseById(@McpToolParam(description = "The id of the release") String id) {
         return api.getReleaseById(id).block();
     }
 
-    @Tool(name = "database_master_release_versions", description = "Get the versions of a master release")
+    @McpTool(name = "discogs_database_master_release_versions", description = "Retrieves a list of all Releases that are versions of this master.")
     public MasterReleaseVersions getMasterReleaseVersions(
-            @ToolParam(description = "The id of the master release") String id,
-            @ToolParam(description = "The page you want to request. Example: 3", required = false) Integer page,
-            @ToolParam(description = "The number of items per page. Example: 25,. Default is 30", required = false) Integer pageSize,
-            @ToolParam(description = "The format to filter (Vinyl, CD, Cassette, EP....)", required = false) String format,
-            @ToolParam(description = "The label to filter. Example: Columbia", required = false) String label,
-            @ToolParam(description = "The release year to filter. Example: 1992", required = false) Integer released,
-            @ToolParam(description = "The country to filter. Example: France", required = false) String country,
-            @ToolParam(description = "Sort release versions by : (released, title, format, label, catno or country)", required = false) SortingField sort,
-            @ToolParam(description = "Sorting items order (asc or desc)", required = false) SortingOrder order
+            @McpToolParam(description = "The id of the master release") String id,
+            @McpToolParam(description = "Search criteria") MasterReleaseVersionsCriteria masterReleaseVersionsCriteria,
+            @McpToolParam(description = "Pagination criteria") PaginationCriteria paginationCriteria
     ) {
-        return api.getMasterReleaseVersions(id, MasterReleaseVersionsParams
-                .build(builder -> builder.page(page).pageSize(pageSize).format(format).label(label)
-                        .released(released).country(country).sort(sort).order(order))).block();
+        return api.getMasterReleaseVersions(id, masterReleaseVersionsCriteria, paginationCriteria).block();
     }
 
+    @McpTool(name = "discogs_database_search", description = "Search for releases, masters, labels, artists, or users.")
+    public SearchResults search(
+            @McpToolParam(description = "Search criteria") SearchCriteria searchCriteria,
+            @McpToolParam(description = "Pagination criteria") PaginationCriteria paginationCriteria
+    ) {
+        return api.search(searchCriteria, paginationCriteria).block();
+    }
 }

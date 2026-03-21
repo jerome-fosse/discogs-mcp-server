@@ -1,4 +1,4 @@
-package com.jf.mcp.discogs.api;
+package com.jf.mcp.discogs.tools;
 
 public enum SortingField {
     released,

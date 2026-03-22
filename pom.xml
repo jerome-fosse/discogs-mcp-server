@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jf.ai</groupId>
     <artifactId>discogs-mcp-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>discogs-mcp-server</name>
     <description>A MCP Server to give AI agents the capability to intteract with Discogs database.</description>
     <url/>

@@ -8,12 +8,11 @@ public class ServerConfig {
 
     public ServerConfig(DiscogsApiConfig config) {
         this.config = config;
-        System.out.println(this);
     }
 
     public String toString() {
         return """
-                Discogs MCp Server Configuration :
+                Discogs MCP Server Configuration :
                 ================================
                 
                 %s

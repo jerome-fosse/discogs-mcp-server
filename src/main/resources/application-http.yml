@@ -1,0 +1,6 @@
+spring:
+  ai:
+    mcp:
+      server:
+        stdio: false
+        protocol: STREAMABLE

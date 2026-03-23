@@ -106,4 +106,13 @@ public class DiscogsApi {
                 .retrieve()
                 .body(LabelReleases.class);
     }
+
+    public PriceSuggestions getPriceSuggestions(String releaseId) {
+        LOGGER.info("Getting price suggestions for release id: {}", releaseId);
+
+        return client.get()
+                .uri("/marketplace/price_suggestions/{releaseId}", releaseId)
+                .retrieve()
+                .body(PriceSuggestions.class);
+    }
 }

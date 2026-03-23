@@ -6,6 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Always verify the actual filesystem state (Glob/Read) before making any claim about the existence, name, or content of a file. Memory and conversation context may be outdated.
 - In classes serialized/deserialized by Jackson (records, POJOs), always use wrapper types (`Integer`, `Boolean`, `Long`, etc.) instead of primitives (`int`, `boolean`, `long`, etc.), since primitives cannot be `null` and will cause deserialization failures when a JSON field is absent or null.
+- All Discogs model types in `com.jf.mcp.discogs.model` must be Java records (not classes). Exception: enums remain enums.
 
 ## Project Overview
 

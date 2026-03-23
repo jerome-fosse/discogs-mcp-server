@@ -28,7 +28,7 @@ public class ReferenceResources {
     }
 
     @McpResource(
-            uri = "reference://how-to-grade-records",
+            uri = "reference://grading-guidelines",
             name = "How to grade records",
             description = "Guidelines for grading records",
             mimeType = "text/plain"
@@ -111,7 +111,7 @@ public class ReferenceResources {
     }
 
     @McpResource(
-            uri = "reference://price-codes",
+            uri = "reference://price-codes/fr",
             name = "Price codes on french pressings",
             description = "Price codes used on french records from 1969 to the mid 80s",
             mimeType = "text/plain"
@@ -128,7 +128,7 @@ public class ReferenceResources {
     }
 
     @McpResource(
-            uri = "reference://how-to-identify-records",
+            uri = "reference://pressing-identification",
             name = "How to identify records",
             description = "Guidelines for identifying records",
             mimeType = "text/plain"

@@ -3,7 +3,7 @@ package com.jf.mcp.discogs.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record ArtistCredit(
-    int id,
+    Integer id,
     String anv,
     String join,
     String name,

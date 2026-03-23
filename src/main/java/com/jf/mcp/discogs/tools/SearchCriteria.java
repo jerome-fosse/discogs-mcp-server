@@ -39,7 +39,7 @@ public class SearchCriteria {
     private final String track;
     @McpToolParam(description = "Search submitter username. Example: milKt", required = false)
     private final String submitter;
-    @McpToolParam(description = "Search submitter username. Example: jerome99", required = false)
+    @McpToolParam(description = "Search contributor username. Example: jerome99", required = false)
     private final String contributor;
 
     public SearchCriteria(String query, SearchType type, String title, String releaseTitle, String credit, 

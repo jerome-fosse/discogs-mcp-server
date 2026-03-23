@@ -76,11 +76,13 @@ Two Spring profiles are available, selecting the MCP transport mode:
 | `stdio` | Standard input/output | Integration with MCP clients (Claude Desktop, etc.) |
 | `http` | HTTP on port `8080` | Development, testing, or HTTP-based MCP clients |
 
+stdio is the default spring profile.
+
 ### stdio mode
 
 ```bash
 export DISCOGS_TOKEN=your_token
-mvn spring-boot:run -Dspring-boot.run.profiles=stdio
+mvn spring-boot:run
 ```
 
 ### HTTP mode
@@ -108,9 +110,8 @@ Then add to your `claude_desktop_config.json`:
     "discogs": {
       "command": "java",
       "args": [
-        "-Dspring.profiles.active=stdio",
         "-jar",
-        "/path/to/discogs-mcp-server-0.0.1-SNAPSHOT.jar"
+        "/path/to/discogs-mcp-server-0.1.0-SNAPSHOT.jar"
       ],
       "env": {
         "DISCOGS_TOKEN": "your_token"

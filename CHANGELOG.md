@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2026-03-23
+
+### Added
+
+#### MCP Tools
+- `discogs_database_artist` — retrieve an artist by ID (name, profile, members, URLs)
+- `discogs_database_label_releases` — list releases for a given label, with pagination support
+- `discogs_marketplace_price_suggestions` — get Discogs price suggestions for a release, broken down by condition
+
+#### MCP Resources
+- `discogs://reference/grading-guidelines` — vinyl and sleeve grading guidelines (Mint to Poor)
+- `discogs://reference/price-codes/fr` — French price codes reference
+- `discogs://reference/pressing-identification` — pressing identification guide
+- `discogs://reference/rights-societies` — list of rights societies
+
 ## [0.0.1] - 2026-03-22
 
 ### Added

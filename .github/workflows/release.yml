@@ -25,7 +25,7 @@ jobs:
         run: |
           VERSION=${GITHUB_REF#refs/tags/v}
           # Extraire la section du changelog correspondant à la version (Keep a Changelog format)
-          awk "/^## \[$VERSION\]/,/^## \[|^## Unreleased/" CHANGELOG.md | sed '$d' > release_notes.txt
+          awk -v ver="${VERSION}" '/^## \[/{if(found) exit; found=($0 ~ "\\[" ver "\\]"); next} found' CHANGELOG.md > release_notes.txt
           cat release_notes.txt
           
       - name: Create Release and Upload Assets

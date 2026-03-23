@@ -40,6 +40,22 @@ Exposes 4 MCP tools:
 | `discogs_database_master_release` | Fetch a master release by its Discogs ID |
 | `discogs_database_master_release_versions` | List all release versions of a master |
 
+## MCP Resources
+
+Exposes 5 MCP resources:
+
+| Resource URI | Description |
+|---|---|
+| `reference://how-to-grade-records` | Goldmine grading standard guidelines for vinyl, CD and cassette |
+| `reference://price-codes` | Price codes on French pressings (1969–mid-1980s) |
+| `reference://how-to-identify-records` | Guidelines for identifying and dating vinyl pressings |
+| `reference://rights-societies` | Reference data for all supported rights management societies (JSON) |
+| `reference://rights-societies/{societyName}/logo` | Visual logo reference for a specific rights society as it appears on labels |
+
+Supported societies: ASCAP, BMI, MCPS, PRS, SACEM, SABAM, GEMA, BIEM, STEMRA, SGAE, SIAE, SUISA.
+
+URI completion is provided for `{societyName}` on the logo resource.
+
 ## Configuration
 
 | Environment variable | Required | Default | Description |
@@ -117,3 +133,7 @@ Point your MCP client at `http://localhost:8080/mcp`.
 - "What are the different formats available for Daft Punk's Random Access Memories?"
 - "Search for 12\" singles by New Order on Factory Records"
 - "Which releases credit Bill Evans as a sideman?"
+- "I have a vinyl with a SACEM logo on the label — what does that tell me about its origin?"
+- "What are the different grades for vinyl condition and what do they mean?"
+- "I see a price code 'Y' on the back of this French pressing — when was it released?"
+- "How can I use the matrix number to identify a pressing?"

@@ -1,0 +1,11 @@
+{
+  "acronym": "PRS",
+  "name": "Performing Right Society",
+  "countries": ["GB"],
+  "type": ["performing_rights"],
+  "typical_placement": ["label", "sleeve"],
+  "matrix_markings": ["PRS"],
+  "logo_resource": "discogs://reference/rights-societies/PRS/logo",
+  "pressing_indicator": "British pressing",
+  "notes": "Often accompanied by MCPS for mechanical rights. Merged with MCPS into PRS for Music since 2013"
+}

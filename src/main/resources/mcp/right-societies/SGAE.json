@@ -1,0 +1,10 @@
+{
+  "acronym": "SGAE",
+  "name": "Sociedad General de Autores y Editores",
+  "countries": ["ES"],
+  "type": ["performing_rights", "mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["SGAE"],
+  "logo_resource": "discogs://reference/rights-societies/SGAE/logo",
+  "pressing_indicator": "Spanish pressing"
+}

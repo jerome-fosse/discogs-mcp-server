@@ -1,0 +1,10 @@
+{
+  "acronym": "BIEM",
+  "name": "Bureau International de l'Édition Mécanographique",
+  "countries": ["*"],
+  "type": ["mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["BIEM"],
+  "logo_resource": "discogs://reference/rights-societies/BIEM/logo",
+  "pressing_indicator": "France-based organization managing rights for over 50 countries. Often found on record labels alongside other local societies (STEMRA, SACEM, GEMA). Vinyl records published before 1971 showing only the BIEM logo are often French editions.",
+}

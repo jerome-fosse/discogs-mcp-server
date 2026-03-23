@@ -1,0 +1,10 @@
+{
+  "acronym": "ASCAP",
+  "name": "American Society of Composers, Authors and Publishers",
+  "countries": ["US"],
+  "type": ["performing_rights"],
+  "typical_placement": ["label", "sleeve"],
+  "matrix_markings": ["ASCAP"],
+  "logo_resource": "discogs://reference/rights-societies/ASCAP/logo",
+  "pressing_indicator": "Indicates an American pressing. The 'Made in the USA' mention is often more common."
+}

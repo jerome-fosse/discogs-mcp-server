@@ -1,0 +1,10 @@
+{
+  "acronym": "SACEM",
+  "name": "Société des Auteurs, Compositeurs et Éditeurs de Musique",
+  "countries": ["FR"],
+  "type": ["performing_rights"],
+  "typical_placement": ["label", "back cover"],
+  "matrix_markings": ["SACEM"],
+  "logo_resource": "discogs://reference/rights-societies/SACEM/logo",
+  "pressing_indicator": "Appears on French pressings from 1971 onwards. The logo is often positioned on the label."
+}

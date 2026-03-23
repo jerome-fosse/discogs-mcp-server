@@ -1,0 +1,10 @@
+{
+  "acronym": "SUISA",
+  "name": "Schweizerische Urheberrechtsgesellschaft",
+  "countries": ["CH"],
+  "type": ["performing_rights", "mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["SUISA"],
+  "logo_resource": "discogs://reference/rights-societies/SUISA/logo",
+  "pressing_indicator": "Swiss pressing"
+}

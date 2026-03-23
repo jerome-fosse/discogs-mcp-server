@@ -1,0 +1,10 @@
+{
+  "acronym": "STEMRA",
+  "name": "Stichting ter Exploitatie van Mechanische Rechten op Auteurs",
+  "countries": ["NL"],
+  "type": ["mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["STEMRA"],
+  "logo_resource": "discogs://reference/rights-societies/STEMRA/logo",
+  "pressing_indicator": "Indicates a Dutch pressing. Often associated with BIEM."
+}

@@ -7,14 +7,14 @@ import com.jf.mcp.discogs.model.Release;
 import com.jf.mcp.discogs.model.SearchResults;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class DiscogsDatabaseService {
+@Component
+public class DiscogsDatabaseTools {
 
     private final DiscogsApi api;
 
-    public DiscogsDatabaseService(DiscogsApi api) {
+    public DiscogsDatabaseTools(DiscogsApi api) {
         this.api = api;
     }
 

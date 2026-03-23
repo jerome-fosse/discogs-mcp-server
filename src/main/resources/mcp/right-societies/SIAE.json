@@ -1,0 +1,10 @@
+{
+  "acronym": "SIAE",
+  "name": "Società Italiana degli Autori ed Editori",
+  "countries": ["IT"],
+  "type": ["performing_rights", "mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["SIAE"],
+  "logo_resource": "discogs://reference/rights-societies/SIAE/logo",
+  "pressing_indicator": "Italian pressing"
+}

@@ -1,0 +1,10 @@
+{
+  "acronym": "SABAM",
+  "name": "Société d'Auteurs Belge - Belgische Auteurs Maatschappij",
+  "countries": ["BE"],
+  "type": ["performing_rights", "mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["SABAM"],
+  "logo_resource": "discogs://reference/rights-societies/SABAM/logo",
+  "pressing_indicator": "Belgian pressing"
+}

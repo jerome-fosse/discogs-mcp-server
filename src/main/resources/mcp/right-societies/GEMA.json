@@ -1,0 +1,10 @@
+{
+  "acronym": "GEMA",
+  "name": "Gesellschaft für musikalische Aufführungs- und mechanische Vervielfältigungsrechte",
+  "countries": ["DE"],
+  "type": ["performing_rights", "mechanical_rights"],
+  "typical_placement": ["label", "sleeve"],
+  "matrix_markings": ["GEMA"],
+  "logo_resource": "discogs://reference/rights-societies/GEMA/logo",
+  "pressing_indicator": "Its presence on labels or back covers indicates a German pressing. Often associated with BIEM."
+}

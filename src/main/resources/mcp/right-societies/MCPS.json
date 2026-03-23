@@ -1,0 +1,10 @@
+{
+  "acronym": "MCPS",
+  "name": "Mechanical-Copyright Protection Society",
+  "countries": ["GB"],
+  "type": ["mechanical_rights"],
+  "typical_placement": ["label"],
+  "matrix_markings": ["MCPS"],
+  "logo_resource": "discogs://reference/rights-societies/MCPS/logo",
+  "pressing_indicator": "Indicates a British pressing. Not always present on labels; a British pressing can also be identified by 'Made in UK' or 'Made in Great Britain'. From 2013, MCPS was replaced by PRS (Performing Right Society)."
+}

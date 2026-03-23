@@ -1,10 +1,7 @@
 package com.jf.mcp.discogs.api;
 
 import com.jf.mcp.discogs.config.DiscogsApiConfig;
-import com.jf.mcp.discogs.model.MasterRelease;
-import com.jf.mcp.discogs.model.MasterReleaseVersions;
-import com.jf.mcp.discogs.model.Release;
-import com.jf.mcp.discogs.model.SearchResults;
+import com.jf.mcp.discogs.model.*;
 import com.jf.mcp.discogs.tools.MasterReleaseVersionsCriteria;
 import com.jf.mcp.discogs.tools.PaginationCriteria;
 import com.jf.mcp.discogs.tools.SearchCriteria;
@@ -87,5 +84,26 @@ public class DiscogsApi {
                         .build())
                 .retrieve()
                 .body(SearchResults.class);
+    }
+
+    public Artist getArtist(String artistId) {
+        LOGGER.info("Getting artist by id: {}", artistId);
+
+        return client.get()
+                .uri("/artists/{artistId}", artistId)
+                .retrieve()
+                .body(Artist.class);
+    }
+
+    public LabelReleases getLabelReleases(String labelId, PaginationCriteria pagination) {
+        LOGGER.info("Getting label releases for label id: {}, pagination: {}", labelId, pagination);
+
+        return client.get()
+                .uri(uriBuilder -> uriBuilder.path("/labels/{labelId}/releases")
+                        .queryParam("page", pagination.getPage().orElse(1))
+                        .queryParam("per_page", pagination.getPageSize().orElse(config.getPageSize()))
+                        .build(labelId))
+                .retrieve()
+                .body(LabelReleases.class);
     }
 }

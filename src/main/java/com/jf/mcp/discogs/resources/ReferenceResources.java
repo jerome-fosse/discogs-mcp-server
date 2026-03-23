@@ -1,15 +1,17 @@
 package com.jf.mcp.discogs.resources;
 
 import io.modelcontextprotocol.spec.McpSchema;
-import org.slf4j.Logger;
-import org.springframework.ai.mcp.annotation.McpResource;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.stereotype.Component;
-
 import io.modelcontextprotocol.spec.McpSchema.BlobResourceContents;
 import io.modelcontextprotocol.spec.McpSchema.ReadResourceResult;
 import io.modelcontextprotocol.spec.McpSchema.TextResourceContents;
+import org.slf4j.Logger;
+import org.springframework.ai.mcp.annotation.McpResource;
+import org.springframework.aot.hint.RuntimeHints;
+import org.springframework.aot.hint.RuntimeHintsRegistrar;
+import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +20,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@ImportRuntimeHints(ReferenceResources.Hints.class)
 public class ReferenceResources {
+
+    static class Hints implements RuntimeHintsRegistrar {
+        @Override
+        public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+            hints.resources().registerPattern("mcp/logos/*.txt");
+            hints.resources().registerPattern("mcp/right-societies/*.json");
+        }
+    }
 
     private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ReferenceResources.class);
     private final ResourcePatternResolver resourceLoader;

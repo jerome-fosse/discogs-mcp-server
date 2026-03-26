@@ -1,8 +1,8 @@
 package com.jf.mcp.discogs.tools;
 
 public enum SearchType {
-    release,
-    master,
-    artist,
-    label,
+    RELEASE,
+    MASTER,
+    ARTIST,
+    LABEL,
 }

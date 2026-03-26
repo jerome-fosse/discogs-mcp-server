@@ -7,5 +7,5 @@ public record FilterFacet(
     String title,
     String id,
     List<FilterFacetValue> values,
-    @JsonProperty("allows_multiple_values") boolean allowsMultipleValues
+    @JsonProperty("allows_multiple_values") Boolean allowsMultipleValues
 ) {}

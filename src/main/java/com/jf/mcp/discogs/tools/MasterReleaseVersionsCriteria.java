@@ -14,17 +14,17 @@ public class MasterReleaseVersionsCriteria {
     @McpToolParam(description = "The country to filter. Example: France", required = false)
     private final String country;
     @McpToolParam(description = "Sort release versions by : (released, title, format, label, catno or country)", required = false)
-    private final SortingField sort;
+    private final SortingField sortingField;
     @McpToolParam(description = "Sorting items order (asc or desc)", required = false)
-    private final SortingOrder order;
+    private final SortingOrder sortingOrder;
 
-    public MasterReleaseVersionsCriteria(String format, String label, Integer released, String country, SortingField sort, SortingOrder order) {
+    public MasterReleaseVersionsCriteria(String format, String label, Integer released, String country, SortingField sortingField, SortingOrder sortingOrder) {
         this.format = format;
         this.label = label;
         this.released = released;
         this.country = country;
-        this.sort = sort;
-        this.order = order;
+        this.sortingField = sortingField;
+        this.sortingOrder = sortingOrder;
     }
 
     public Optional<String> getFormat() {
@@ -43,12 +43,12 @@ public class MasterReleaseVersionsCriteria {
         return Optional.ofNullable(country);
     }
 
-    public Optional<SortingField> getSort() {
-        return Optional.ofNullable(sort);
+    public Optional<SortingField> getSortingField() {
+        return Optional.ofNullable(sortingField);
     }
 
-    public Optional<SortingOrder> getOrder() {
-        return Optional.ofNullable(order);
+    public Optional<SortingOrder> getSortingOrder() {
+        return Optional.ofNullable(sortingOrder);
     }
 
     @Override
@@ -58,8 +58,8 @@ public class MasterReleaseVersionsCriteria {
                 ", label='" + label + '\'' +
                 ", released=" + released +
                 ", country='" + country + '\'' +
-                ", sort=" + sort +
-                ", order=" + order +
+                ", sort=" + sortingField +
+                ", order=" + sortingOrder +
                 '}';
     }
 }

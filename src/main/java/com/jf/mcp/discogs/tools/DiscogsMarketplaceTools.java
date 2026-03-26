@@ -1,6 +1,7 @@
 package com.jf.mcp.discogs.tools;
 
-import com.jf.mcp.discogs.api.DiscogsApi;
+import com.jf.mcp.discogs.api.DiscogsDatabaseApi;
+import com.jf.mcp.discogs.api.DiscogsMarketplaceApi;
 import com.jf.mcp.discogs.model.PriceSuggestions;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
@@ -9,10 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class DiscogsMarketplaceTools {
 
-    private final DiscogsApi api;
+    private final DiscogsMarketplaceApi api;
 
 
-    public DiscogsMarketplaceTools(DiscogsApi api) {
+    public DiscogsMarketplaceTools(DiscogsMarketplaceApi api) {
         this.api = api;
     }
 

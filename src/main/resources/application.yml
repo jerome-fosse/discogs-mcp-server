@@ -8,11 +8,12 @@ spring:
     mcp:
       server:
         name: discogs-mcp-server
-        version: 0.1.0
+        version: 0.2.0
 
 discogs:
   api:
     token: ${DISCOGS_TOKEN:}
+    username: ${DISCOGS_USERNAME:}
     baseurl: ${DISCOGS_BASEURL:https://api.discogs.com}
     timeout: ${DISCOGS_TIMEOUT:5000}
     pagesize: ${DISCOGS_PAGESIZE:30}

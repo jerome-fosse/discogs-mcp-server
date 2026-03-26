@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 @Configuration
 public class WebClientConfig {
 
@@ -28,7 +31,7 @@ public class WebClientConfig {
                         case 401 -> new DiscogsApiException("Invalid or missing Discogs API token. Check your DISCOGS_TOKEN.");
                         case 404 -> new DiscogsApiException("Resource not found on Discogs (404): " + request.getURI().getPath());
                         case 429 -> new DiscogsApiException("Discogs API rate limit exceeded. Please retry later.");
-                        default -> new DiscogsApiException("Discogs API error " + response.getStatusCode().value() + ": " + request.getURI().getPath());
+                        default -> new DiscogsApiException(response);
                     };
                 })
                 .build();

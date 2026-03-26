@@ -1,6 +1,6 @@
 package com.jf.mcp.discogs.tools;
 
-import com.jf.mcp.discogs.api.DiscogsApi;
+import com.jf.mcp.discogs.api.DiscogsDatabaseApi;
 import com.jf.mcp.discogs.model.*;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class DiscogsDatabaseTools {
 
-    private final DiscogsApi api;
+    private final DiscogsDatabaseApi api;
 
-    public DiscogsDatabaseTools(DiscogsApi api) {
+    public DiscogsDatabaseTools(DiscogsDatabaseApi api) {
         this.api = api;
     }
 

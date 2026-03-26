@@ -20,6 +20,8 @@ public class DiscogsApiConfig implements EnvironmentAware {
 
     @NotBlank
     private String token;
+    @NotBlank
+    private String username;
     private String baseUrl;
     private Integer timeout;
     private Integer pageSize;
@@ -53,6 +55,14 @@ public class DiscogsApiConfig implements EnvironmentAware {
         this.pageSize = pageSize;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
     public String getToken() {
         return token;
     }
@@ -70,7 +80,7 @@ public class DiscogsApiConfig implements EnvironmentAware {
     }
 
     public String toString() {
-        return "DISCOGS API CONFIGURATION: token: %s, baseUrl: %s, timeout: %s, pageSize: %s"
-                .formatted("***************", baseUrl, timeout, pageSize);
+        return "DISCOGS API CONFIGURATION: token: %s, username: %s, baseUrl: %s, timeout: %s, pageSize: %s"
+                .formatted("***************", username, baseUrl, timeout, pageSize);
     }
 }

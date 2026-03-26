@@ -5,18 +5,19 @@ import com.jf.mcp.discogs.model.*;
 import com.jf.mcp.discogs.tools.MasterReleaseVersionsCriteria;
 import com.jf.mcp.discogs.tools.PaginationCriteria;
 import com.jf.mcp.discogs.tools.SearchCriteria;
+import com.jf.mcp.discogs.tools.SortingField;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 @Component
-public class DiscogsApi {
+public class DiscogsDatabaseApi {
     private final DiscogsApiConfig config;
     private final RestClient client;
 
-    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(DiscogsApi.class);
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(DiscogsDatabaseApi.class);
 
-    public DiscogsApi(DiscogsApiConfig config, RestClient client) {
+    public DiscogsDatabaseApi(DiscogsApiConfig config, RestClient client) {
         this.config = config;
         this.client = client;
     }
@@ -49,8 +50,8 @@ public class DiscogsApi {
                         .queryParamIfPresent("label", criteria.getLabel())
                         .queryParamIfPresent("released", criteria.getReleased())
                         .queryParamIfPresent("country", criteria.getCountry())
-                        .queryParamIfPresent("sort", criteria.getSort())
-                        .queryParamIfPresent("sort_order", criteria.getOrder())
+                        .queryParamIfPresent("sort", criteria.getSortingField().map(SortingField::getField))
+                        .queryParamIfPresent("sort_order", criteria.getSortingOrder().map(order -> order.name().toLowerCase()))
                         .build(masterId))
                 .retrieve()
                 .body(MasterReleaseVersions.class);
@@ -62,7 +63,7 @@ public class DiscogsApi {
         return client.get()
                 .uri(uriBuilder -> uriBuilder.path("/database/search")
                         .queryParamIfPresent("q", criteria.getQuery())
-                        .queryParamIfPresent("type", criteria.getType())
+                        .queryParamIfPresent("type", criteria.getType().map(type -> type.name().toLowerCase()))
                         .queryParamIfPresent("title", criteria.getTitle())
                         .queryParamIfPresent("release_title", criteria.getReleaseTitle())
                         .queryParamIfPresent("credit", criteria.getCredit())
@@ -105,14 +106,5 @@ public class DiscogsApi {
                         .build(labelId))
                 .retrieve()
                 .body(LabelReleases.class);
-    }
-
-    public PriceSuggestions getPriceSuggestions(String releaseId) {
-        LOGGER.info("Getting price suggestions for release id: {}", releaseId);
-
-        return client.get()
-                .uri("/marketplace/price_suggestions/{releaseId}", releaseId)
-                .retrieve()
-                .body(PriceSuggestions.class);
     }
 }

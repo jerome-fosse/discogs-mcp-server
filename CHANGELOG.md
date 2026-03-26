@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-03-26
+
+### Added
+
+#### MCP Tools — Collection
+
+- `discogs_collection_folders` — list folders in a user's collection
+- `discogs_collection_folder` — retrieve metadata about a specific folder
+- `discogs_collection_folder_create` — create a new folder in a user's collection
+- `discogs_collection_folder_delete` — delete an empty folder (folders 0 and 1 cannot be deleted)
+- `discogs_collection_items_by_release` — list collection folders containing a specific release
+- `discogs_collection_items_by_folder` — list items in a folder, with filtering, sorting and pagination support
+- `discogs_collection_add_to_folder` — add a release to a folder
+- `discogs_collection_release_change_rating` — change the rating of a release instance
+- `discogs_delete_release_instance_from_folder` — remove a release instance from a folder
+- `discogs_remove_release_instance_from_folder` — move a release instance to the "Uncategorized" folder
+- `discogs_list_custom_collection_fields` — list user-defined collection notes fields
+- `discogs_edit_custom_collection_field_instance` — edit a custom notes field on a release instance
+- `discogs_collection_value` — retrieve the minimum, median, and maximum value of a user's collection
+
+### Changed
+
+- `DiscogsApi` renamed to `DiscogsDatabaseApi` — API clients are now split by domain (`DiscogsDatabaseApi`, `DiscogsMarketplaceApi`, `DiscogsCollectionApi`)
+
 ## [0.1.0] - 2026-03-23
 
 ### Added
